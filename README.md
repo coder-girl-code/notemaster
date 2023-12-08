@@ -64,18 +64,12 @@ Executing this command will create a new directory named `webapp` that will hous
 In the newly created `webapp` directory, there is a file named `requirements.txt` that lists all the necessary packages for running this web application. In the active virtual environment, install these packages using the following command: `pip install -r requirements.txt`
 
 ### 10. Flask Web App Configuration
-The primary file of your app is 'app.py'. The Flask App needs to be configured accordingly with the following commands.
+The primary file of your app is 'app.py'. To ensure Flask recognizes app.py as your primary application file, follow these steps:
 
-
-### Configure the Flask Web App
-To ensure Flask recognizes app.py as your primary application file, follow these steps:
-
-Open your terminal or command prompt.
-
-Navigate to your webapp directory using the following command:
+- Open your terminal or command prompt.
+- Navigate to your webapp directory using the following command:
 `cd webapp`
-
-Depending on your operating system, use the appropriate commands to set up Flask:
+- Depending on your operating system, use the appropriate commands to set up Flask:
 
 #### For Windows Users:
 Enter the following commands to set your FLASK_APP environment variable to app.py and to set your FLASK_ENV environment variable to development:
