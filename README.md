@@ -1,99 +1,103 @@
-# Python Flask Web App Template
-This template is built using Flask Web App Framework. It contains a sample Sqlite Database enabled with a Login Feature and an admin panel.
+# Flask-Based Web Application Template
 
-## Instructions
+This template leverages the Flask Web Application Framework, incorporating an example Sqlite Database with an integrated Login Feature and an admin panel.
 
-### Install Python
-As of Dec 2023, install Python Version 3.10.11
+Instructions
 
-#### For Windows
-https://www.python.org/downloads/windows/
+## 1. Python Installation
+Currently, as of December 2023, Python Version 3.10.11 is recommended.
 
-#### For Mac
-https://www.python.org/downloads/macos/
+### For Windows: 
+Access the download link [here](https://www.python.org/downloads/windows/)
 
-### Install MS Visual Studio Code
-Microsoft's Visual Studio is a recommended IDE to use.
+### For Mac: 
+Access the download link [here](https://www.python.org/downloads/macos/)
 
-### Install Git
-#### Git for Windows
-https://git-scm.com/download/win
+## 2. Microsoft Visual Studio Code Installation
+Microsoft's Visual Studio is the suggested Integrated Development Environment (IDE) for this project.
 
-#### Git for Mac
-You may require to install homebrew, if not already installed
-https://brew.sh/
+## 3. Git Installation
+### Git for Windows: 
+Download it from [here](https://git-scm.com/download/win)
 
-You may then proceed to install Git
-https://git-scm.com/download/mac
+### Git for Mac: 
+You may need to install homebrew first, if it isn't already installed, which can be found [here](https://brew.sh/). Then, proceed with Git installation from [here](https://git-scm.com/download/mac)
 
-### Designate a folder and get MS Visual Studio Code ready
+## Setting Up Microsoft Visual Studio Code
+- Create a specific folder on your local machine that will host the virtual environment and your project files. For this guide, let's assume the folder is named "project" located on your Desktop.
+- Open this "project" folder in MS Visual Studio Code.
+- Navigate to View in the menu, select Extensions and enable the Python Extension.
+- Then, go to View in the menu and select Command Palette.
+- In the Command Palette, search for Python Interpreter and select the Python version you have installed from the list provided.
+- Navigate to Terminal in the menu and select View Terminal.
+- In the Terminal, validate your installed Python version using the command: `python --version`
 
-Designate a folder on your computer that will contain the virtual environment and your project files.
+## 5. Installation of virtualenv Package
+Virtualenv is a third-party Python package suggested for creating and managing virtual environments.
 
-Lets assume the folder name is project on your Desktop.
+For Windows users, utilize a `cmd` terminal instead of a `powershell` terminal. For Mac users, either a `bash` or `zsh` terminal is acceptable.
 
-- Open the folder project from MS Visual Studio Code
-- From the menu, click View and select Extensions and enable the Python Extension
-- From the menu, click View and select Command Palette.
-- From the command Palette, search for Python Interpreter. From the provided list, select the Python version you have installed.
-- From the menu, click Terminal and select View Terminal.
-- From the Terminal, check your python version using the below command
+In the Terminal, install `virtualenv` using the command: `pip install virtualenv`
 
-  ` python --version `
+## 6. Virtual Environment Setup
+In the Terminal, create a virtual environment using the command: `virtualenv venv --python=python3.10`
 
-### Install virtualenv package
-Virtualenv is a recommended third-party python package for creating and managing a virtual environment
+The name `venv` has been assigned to the virtual environment, but feel free to choose a name that suits you. The `--python` argument is optional and can be used if you have multiple Python versions installed on your system.
 
-For Windows, run a cmd terminal rather than a Powershell terminal.
-For mac, either a bash or zsh is fine.
+Upon completion, a folder named `venv` should be present within your project directory.
 
-- From the Terminal, run the below command
-` pip install virtualenv `
-
-### Setup the Virtual Environment
-From the Terminal, run the below command
-` virtualenv venv --python=python3.10`
-
-venv is the name assigned for the virtual environment. You are free to choose the name you like.
-The `--python` argument is optional. It can be used if you have multiple Python versions installed on your computer.
-
-Once completed, you will see a folder by the name venv within your project directory.
-
-### Activate the Virtual Environment
-#### For Windows
+## 7. Activation of the Virtual Environment
+### For Windows: 
 `venv\bin\activate`
 
-#### For Mac
+### For Mac: 
 `source venv/bin/activate`
 
-Once activated, the terminal window will show the name of the virtual environment `venv` within round brackets.
+Once activated, the terminal should display the virtual environment name `venv` within parentheses.
 
-### Clone the Repository
-We can clone this repository to the local project directory using the below command
+### 8. Repository Cloning
+Clone the repository to your local project directory using the command: 
 `git clone https://github.com/sunil-mnair/flask-login-admin-wtforms.git webapp`
 
-Running the above command will create a new directory titled `webapp` which will contain all files from the repository.
+Executing this command will create a new directory named `webapp` that will house all the repository files.
 
-### Install the required Python Packages
+### 9. Python Packages Installation
+In the newly created `webapp` directory, there is a file named `requirements.txt` that lists all the necessary packages for running this web application. In the active virtual environment, install these packages using the following command: `pip install -r requirements.txt`
 
-In the new `webapp' directory, the file `requirements.txt` contains all the packages we will need to get this web application running. In the active virtual environment, install the packages using the below command in the terminal.
+### 10. Flask Web App Configuration
+The primary file of your app is 'app.py'. The Flask App needs to be configured accordingly with the following commands.
 
-`pip install -r requirements.txt'
 
 ### Configure the Flask Web App
-The main file of your app is `app.py`. The Flask App needs to be configured to know this. Run below commands to get it done.
+To ensure Flask recognizes app.py as your primary application file, follow these steps:
 
+Open your terminal or command prompt.
+
+Navigate to your webapp directory using the following command:
 `cd webapp`
 
-#### For Windows
+Depending on your operating system, use the appropriate commands to set up Flask:
 
-`set FLASK_APP=app.py`
+#### For Windows Users:
+Enter the following commands to set your FLASK_APP environment variable to app.py and to set your FLASK_ENV environment variable to development:
 
-### For Mac
+`set FLASK_APP=app.py
+set FLASK_ENV=development`
 
-`export FLASK_APP=app.py`
+#### For Mac Users:
+Use the following commands instead:
 
-### Run your App
-In the active virtual environment, run the below command to run the app
+`export FLASK_APP=app.py
+export FLASK_ENV=development`
+
+After setting up Flask, you can launch your application.
+
+## 11. Launching Your Application:
+
+Ensure you are within the active virtual environment. Then, execute the following command to start your Flask application with reloading enabled:
 
 `flask run --reload`
+
+This command starts your application and the --reload option enables hot-reloading, meaning Flask will automatically detect changes in your files and restart the server when needed.
+
+After running the above command, your application will launch in your web browser as localhost. You can access it by entering http://localhost:5000 in your browser's address bar.
