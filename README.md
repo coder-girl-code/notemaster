@@ -17,8 +17,14 @@ Microsoft's Visual Studio is a recommended IDE to use.
 
 ### Install Git
 #### Git for Windows
+https://git-scm.com/download/win
 
 #### Git for Mac
+You may require to install homebrew, if not already installed
+https://brew.sh/
+
+You may then proceed to install Git
+https://git-scm.com/download/mac
 
 ### Designate a folder and get MS Visual Studio Code ready
 
@@ -60,12 +66,34 @@ Once completed, you will see a folder by the name venv within your project direc
 #### For Mac
 `source venv/bin/activate`
 
+Once activated, the terminal window will show the name of the virtual environment `venv` within round brackets.
 
+### Clone the Repository
+We can clone this repository to the local project directory using the below command
+`git clone https://github.com/sunil-mnair/flask-login-admin-wtforms.git webapp`
 
-#### Key Libraries
-* flask
-* flask-sqlaclhemy
-* flask-login
-* flask-admin
-* flask-wtforms
-* wtforms
+Running the above command will create a new directory titled `webapp` which will contain all files from the repository.
+
+### Install the required Python Packages
+
+In the new `webapp' directory, the file `requirements.txt` contains all the packages we will need to get this web application running. In the active virtual environment, install the packages using the below command in the terminal.
+
+`pip install -r requirements.txt'
+
+### Configure the Flask Web App
+The main file of your app is `app.py`. The Flask App needs to be configured to know this. Run below commands to get it done.
+
+`cd webapp`
+
+#### For Windows
+
+`set FLASK_APP=app.py`
+
+### For Mac
+
+`export FLASK_APP=app.py`
+
+### Run your App
+In the active virtual environment, run the below command to run the app
+
+`flask run --reload`
