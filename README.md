@@ -6,15 +6,19 @@ This template is built using Flask Web App Framework. It contains a sample Sqlit
 ### Install Python
 As of Dec 2023, install Python Version 3.10.11
 
-Windows
+#### For Windows
 https://www.python.org/downloads/windows/
 
-Mac
+#### For Mac
 https://www.python.org/downloads/macos/
 
 ### Install MS Visual Studio Code
 Microsoft's Visual Studio is a recommended IDE to use.
 
+### Install Git
+#### Git for Windows
+
+#### Git for Mac
 
 ### Designate a folder and get MS Visual Studio Code ready
 
@@ -48,6 +52,15 @@ venv is the name assigned for the virtual environment. You are free to choose th
 The `--python` argument is optional. It can be used if you have multiple Python versions installed on your computer.
 
 Once completed, you will see a folder by the name venv within your project directory.
+
+### Activate the Virtual Environment
+#### For Windows
+`venv\bin\activate`
+
+#### For Mac
+`source venv/bin/activate`
+
+
 
 #### Key Libraries
 * flask
