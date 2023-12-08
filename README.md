@@ -2,7 +2,6 @@
 
 This template leverages the Flask Web Application Framework, incorporating an example Sqlite Database with an integrated Login Feature and an admin panel.
 
-Instructions
 
 ## 1. Python Installation
 Currently, as of December 2023, Python Version 3.10.11 is recommended.
