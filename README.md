@@ -94,3 +94,18 @@ Ensure you are within the active virtual environment. Then, execute the followin
 This command starts your application and the --reload option enables hot-reloading, meaning Flask will automatically detect changes in your files and restart the server when needed.
 
 After running the above command, your application will launch in your web browser as localhost. You can access it by entering http://localhost:5000 in your browser's address bar.
+
+## 12. Sign Up
+
+Navigate to the sign-up page at http://localhost:5000/signup
+
+Fill out the form with the necessary information. Be sure to remember the username and password you used, as you'll need them to log in later.
+
+Once you've filled out the form, there should be a button labeled "Sign up". Click on that button to submit your details and create your account.
+
+Once you've signed up, you'll be redirected to the login page at http://localhost:5000/login
+
+
+## 13. Access the Admin Panel
+
+To access the admin panel, navigate to http://localhost:5000/admin
