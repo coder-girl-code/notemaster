@@ -15,6 +15,9 @@ Access the download link [here](https://www.python.org/downloads/macos/)
 ## 2. Microsoft Visual Studio Code Installation
 Microsoft's Visual Studio is the suggested Integrated Development Environment (IDE) for this project.
 
+Download it from [here](
+https://code.visualstudio.com/download)
+
 ## 3. Git Installation
 ### Git for Windows: 
 Download it from [here](https://git-scm.com/download/win)
@@ -28,7 +31,7 @@ You may need to install homebrew first, if it isn't already installed, which can
 - Navigate to View in the menu, select Extensions and enable the Python Extension.
 - Then, go to View in the menu and select Command Palette.
 - In the Command Palette, search for Python Interpreter and select the Python version you have installed from the list provided.
-- Navigate to Terminal in the menu and select View Terminal.
+- Navigate to Terminal in the menu and select New Terminal.
 - In the Terminal, validate your installed Python version using the command: `python --version`
 
 ## 5. Installation of virtualenv Package
@@ -74,14 +77,14 @@ The primary file of your app is 'app.py'. To ensure Flask recognizes app.py as y
 #### For Windows Users:
 Enter the following commands to set your FLASK_APP environment variable to app.py and to set your FLASK_ENV environment variable to development:
 
-`set FLASK_APP=app.py
-set FLASK_ENV=development`
+`set FLASK_APP=app.py`
+`set FLASK_ENV=development`
 
 #### For Mac Users:
 Use the following commands instead:
 
-`export FLASK_APP=app.py
-export FLASK_ENV=development`
+`export FLASK_APP=app.py`
+`export FLASK_ENV=development`
 
 After setting up Flask, you can launch your application.
 
