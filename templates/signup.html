@@ -37,7 +37,18 @@
                        
                             {{ render_field(form.username,placeholder=form.username.label.text) }}
                             {{ render_field(form.password,placeholder=form.password.label.text) }}
-                       
+                            {{ render_field(form.name,placeholder=form.name.label.text) }}
+                            {{ render_field(form.dob,placeholder=form.dob.label.text) }}
+                            <div class="form-group">
+                                <select class="form-control" name="country" id="">
+                                    {%for country in countries%}
+                                    <option value="{{country['country']}}">
+                                        {{country['country']}}
+                                    </option>
+                                    {%endfor%}
+                                </select>
+                            </div>
+                            {{ render_field(form.school,placeholder=form.school.label.text) }}
                         <button type="submit" class="btn btn-primary">sign up</button>
                     </form>
                 </div>

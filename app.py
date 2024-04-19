@@ -1,6 +1,6 @@
 
-import os
-from flask import Flask,render_template, redirect,url_for,flash
+import os,json
+from flask import Flask,render_template, redirect,url_for,flash,request
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -34,6 +34,9 @@ def load_user(user_id):
 
 admin = Admin(app,index_view=MainAdminIndexView(),template_mode='bootstrap3')
 admin.add_view(AllModelView(User,db.session))
+admin.add_view(AllModelView(NoteMaster,db.session))
+admin.add_view(AllModelView(McqMaster,db.session))
+admin.add_view(AllModelView(McqResults,db.session))
 
 
 @app.route('/',methods=['GET','POST'])
@@ -47,6 +50,10 @@ def signup():
     title = "Sign Up"
     form = SignupForm()
 
+    #reading country json file
+    with open('static/json/countries.json') as file:
+        countries = json.load(file)
+
     if form.validate_on_submit():
 
         user = User.query.filter_by(username=form.username.data).first() # if this returns a user, then the email already exists in database
@@ -56,7 +63,15 @@ def signup():
             return redirect(url_for('signup'))
 
         # create a new user with the form data. Hash the password so the plaintext version isn't saved.
-        new_user = User(username=form.username.data, password=generate_password_hash(form.password.data))
+        #new_user = User(username=form.username.data, password=generate_password_hash(form.password.data), )
+        new_user = User()
+        new_user.username = form.username.data
+        new_user.password = generate_password_hash(form.password.data, method='pbkdf2:sha256')
+        new_user.name = form.name.data
+        new_user.dob = form.dob.data
+        new_user.school = form.school.data
+        new_user.country = request.form["country"]
+        #country not included
 
         # add the new user to the database
         db.session.add(new_user)
@@ -65,7 +80,7 @@ def signup():
         # code to validate and add user to database goes here
         return redirect(url_for('login'))
     
-    return render_template('signup.html',title=title,form=form)
+    return render_template('signup.html',title=title,form=form,countries=countries)
 
 
 @app.route('/login',methods=['GET','POST'])
@@ -78,7 +93,7 @@ def login():
     if form.validate_on_submit():
 
         user = User.query.filter_by(username=form.username.data).first()
-
+        print(form.username.data)
         # check if the user exists
         # take the user-supplied password, hash it, and compare it to the hashed password in the database
         if not user or not check_password_hash(user.password, form.password.data):

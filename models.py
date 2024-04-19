@@ -11,6 +11,39 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
     username = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
+    name = db.Column(db.String(100))
+    dob = db.Column(db.DateTime)
+    school = db.Column(db.String(100))
+    country = db.Column(db.String(100))
+    level_id = db.Column(db.Integer)
+    created_date = db.Column(db.DateTime, default = datetime.now(uae))
+    def __repr__(self):
+        return self.username
+class NoteMaster(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    level = db.Column(db.Integer)
+    video = db.Column(db.String(100))
+    notes = db.Column(db.String(500))
+    clef = db.Column(db.String(100))
+    points = db.Column(db.Integer)
+    colour_scheme = db.Column(db.String(100))
+    created_date = db.Column(db.DateTime, default = datetime.now(uae))
+    def __repr__(self):
+        return self.level
+class McqMaster(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    level_id = db.Column(db.Integer, db.ForeignKey('note_master.level_id'))
+    question = db.Column(db.String(100))
+    created_date = db.Column(db.DateTime, default = datetime.now(uae))
+    def __repr__(self):
+        return self.question
+class McqResults(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
+    response = db.Column(db.String(100))
+    question_id = db.Column(db.Integer, db.ForeignKey('mcq_master.question_id'))
+    duration = db.Column(db.String(100))
+    created_date = db.Column(db.DateTime, default = datetime.now(uae))
 
 
 
